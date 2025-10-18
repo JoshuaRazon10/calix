@@ -1,0 +1,193 @@
+:root {
+  --bg: #0a0a0a;
+  --card: #111;
+  --accent: #ffffff;
+  --muted: #9ca3af;
+  --primary: #2563eb;
+}
+
+/* General Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { 
+  font-family: 'Poppins', sans-serif; 
+  background: var(--bg); 
+  color: var(--accent);
+}
+
+/* Header */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 24px;
+  background: #111;
+  border-bottom: 1px solid #1f2937;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.logo { font-size: 22px; font-weight: 700; }
+.logo span { color: var(--primary); }
+.tag { color: var(--muted); font-size: 13px; }
+.search { flex: 1; margin: 0 16px; }
+.search input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+}
+.search input::placeholder { color: #777; }
+
+.actions { display: flex; gap: 12px; align-items: center; }
+.cart-btn {
+  position: relative;
+  background: var(--primary);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.cart-count {
+  position: absolute;
+  top: -6px; right: -6px;
+  background: #ef4444; color: #fff;
+  border-radius: 50%; width: 20px; height: 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+
+/* Grid */
+main { max-width: 1100px; margin: 26px auto; padding: 0 16px; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+.product {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.product:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+}
+.thumb {
+  height: 180px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.thumb img { max-width: 100%; max-height: 100%; object-fit: cover; }
+.p-title { font-weight: 600; color: #fff; }
+.price { color: var(--primary); font-weight: 700; }
+.meta { display: flex; align-items: center; justify-content: space-between; color: #aaa; }
+.btn {
+  background: var(--primary);
+  color: #fff;
+  padding: 8px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+}
+.outline {
+  background: transparent;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+/* Drawer (Cart) */
+.drawer {
+  position: fixed;
+  right: 18px;
+  top: 70px;
+  width: 360px;
+  max-width: calc(100% - 36px);
+  background: #111;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  padding: 16px;
+  transform: translateX(120%);
+  transition: transform .28s ease;
+  z-index: 40;
+}
+.drawer.open { transform: translateX(0); }
+
+.cart-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #333;
+}
+.cart-item img {
+  width: 64px; height: 64px;
+  object-fit: cover; border-radius: 8px;
+}
+.qty { display: flex; align-items: center; gap: 8px; }
+.qty button {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid #333;
+  background: #1a1a1a;
+  color: #fff;
+}
+.checkout {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+footer {
+  padding: 28px;
+  text-align: center;
+  color: var(--muted);
+  background: #0a0a0a;
+}
+.total { font-weight: 700; font-size: 18px; color: #fff; }
+.no-results, .empty {
+  display: none;
+  padding: 24px;
+  text-align: center;
+  color: var(--muted);
+}
+
+/* Homepage */
+.home-header { background: transparent; padding: 24px; }
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: url('https://images.unsplash.com/photo-1606813902917-0e1b8c1c9b9c?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+  color: #fff;
+  text-align: center;
+}
+.hero-content {
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  border-radius: 20px;
+}
+.hero h1 { font-size: 3rem; margin-bottom: 10px; color: #fff; }
+.hero p { font-size: 1.2rem; margin-bottom: 20px; color: #ccc; }
+.hero-btn {
+  background: #fff;
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+.hero-btn:hover { background: #ddd; }
